@@ -11,23 +11,23 @@ const Input = () => {
         console.log(val)
 
     }
-    // const handleAlert = ()=>{
-    //     Alert.alert(
-    //         "Success",
-    //         "Your data has been submited ",
-    //         [
-    //             {
-    //                 text: "Cancel",
-    //                 onPress: () => console.log("Cancel Pressed"),
-    //                 style: "cancel"
-    //             }, 
-    //             {
-    //                 text: "OK", onPress: () => console.log("OK Pressed") 
-    //             },
-    //         ]
+    const handleAlert = ()=>{
+        Alert.alert(
+            "Success",
+            "Your data has been submited ",
+            [
+                {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                }, 
+                {
+                    text: "OK", onPress: () => console.log("OK Pressed") 
+                },
+            ]
 
-    //     )
-    // }
+        )
+    }
 
     return (
         <TouchableWithoutFeedback
