@@ -1,43 +1,69 @@
 import React, { useState } from 'react';
-import {StyleSheet, View , Text , TextInput, SafeAreaView, Button} from 'react-native'
+import {StyleSheet, View , Text , TextInput,Alert, SafeAreaView,Keyboard, TouchableWithoutFeedback} from 'react-native'
 import FlatButton from './FlatButton';
 
 const Input = () => {
 
     const [ textInput, setTextInput]= useState('Enter Text');
-    const [ passwordInput, setPasswordInput]= useState(' ');
+    const [ passwordInput, setPasswordInput]= useState('password');
 
+    const handleTextInp = (val)=> {
+        console.log(val)
+
+    }
+    // const handleAlert = ()=>{
+    //     Alert.alert(
+    //         "Success",
+    //         "Your data has been submited ",
+    //         [
+    //             {
+    //                 text: "Cancel",
+    //                 onPress: () => console.log("Cancel Pressed"),
+    //                 style: "cancel"
+    //             }, 
+    //             {
+    //                 text: "OK", onPress: () => console.log("OK Pressed") 
+    //             },
+    //         ]
+
+    //     )
+    // }
 
     return (
-        <View style={styles.widthV}>
-        <SafeAreaView style={styles.inputContainer}>
+        <TouchableWithoutFeedback
+        onPress={Keyboard.dismiss}
+        >
+            <View style={styles.widthV}>
+                <SafeAreaView style={styles.inputContainer}>
+                            {/* input form  */}
 
-                    {/* input form  */}
+                        <Text style={styles.text}> Register Form </Text>
+                            <View style={styles.inputView}>
+                                <TextInput 
+                                value={textInput}
+                                onChange={setTextInput}
+                                style={styles.input}
+                                onPress={handleTextInp}
+                                />
+                            </View>
+                            <View style={styles.inputView}>
+                                <TextInput 
+                                value={passwordInput}
+                                keyboardType="numeric"
+                                secureTextEntry={true}
+                                onChange={setPasswordInput}
+                                style={styles.input}
+                                />
+                            </View>
 
-                <Text style={styles.text}> Register Form </Text>
-                    <View style={styles.inputView}>
-                        <TextInput 
-                        value={textInput}
-                        onChange={setTextInput}
-                        style={styles.input}
-                        />
-                    </View>
-                    <View style={styles.inputView}>
-                        <TextInput 
-                        value={passwordInput}
-                        keyboardType="numeric"
-                        secureTextEntry={true}
-                        onChange={setPasswordInput}
-                        style={styles.input}
-                        />
-                    </View>
+                                {/* custom Button */}
+                            <FlatButton
+                            onPress={handleAlert}
+                              text=' On Submit' />
 
-                        {/* custom Button */}
-                      <FlatButton  text=' On Submit' />
-        
-        </SafeAreaView>
-        
-        </View>
+                </SafeAreaView>
+            </View>
+        </TouchableWithoutFeedback>
     );
 };
 
